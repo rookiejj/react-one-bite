@@ -42,7 +42,7 @@ function App() {
       <h1>Simple Counter</h1>
       <section>
         <Viewer count={count} />
-        {count % 2 === 0 ? <div>짝수 아님</div> : <Even />}
+        {count % 2 === 0 && <Even />}
       </section>
       <section>
         <Controller handleSetCount={handleSetCount} />
