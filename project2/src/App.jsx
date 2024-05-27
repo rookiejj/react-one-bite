@@ -12,13 +12,13 @@ const mockDate = [
     date: new Date().getTime(),
   },
   {
-    id: 0,
+    id: 1,
     isDone: false,
     content: "빨래하기",
     date: new Date().getTime(),
   },
   {
-    id: 0,
+    id: 2,
     isDone: false,
     content: "노래 연습하기",
     date: new Date().getTime(),
@@ -42,15 +42,9 @@ function App() {
 
   return (
     <div className="App">
-      <section>
-        <Header />
-      </section>
-      <section>
-        <Editor onCreate={onCreate} />
-      </section>
-      <section>
-        <List />
-      </section>
+      <Header />
+      <Editor onCreate={onCreate} />
+      <List todos={todos} />
     </div>
   );
 }
