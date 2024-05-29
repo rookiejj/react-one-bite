@@ -42,6 +42,8 @@ function App() {
   const onUpdate = (targetId) => {
     setTodos(
       todos.map((todo) =>
+        // 매개변수가 많은 객체를 전달할 때, 왜 { todo } 가 아닌, 스프레드 연산자를 사용한 { ...todo } 를 전달해야 하는지... 왜더라...
+
         todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
       )
     );
