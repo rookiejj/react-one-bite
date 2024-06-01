@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-const reducer = (state, action) => {
+function reducer(state, action) {
   switch (action.type) {
     case "INCREASE":
       return state + action.data;
@@ -9,7 +9,7 @@ const reducer = (state, action) => {
     default:
       return action.data;
   }
-};
+}
 
 const Exam = () => {
   const [state, dispatch] = useReducer(reducer, 0);
