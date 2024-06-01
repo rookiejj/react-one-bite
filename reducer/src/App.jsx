@@ -1,10 +1,10 @@
 import "./App.css";
-import { useState, useRef } from "react";
+import { useRef, useReducer } from "react";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
 import List from "./components/List";
 
-const mockDate = [
+const mockData = [
   {
     id: 0,
     isDone: false,
@@ -25,31 +25,47 @@ const mockDate = [
   },
 ];
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "CREATE":
+      return [action.data, ...state];
+    case "UPDATE":
+      return state.map((item) =>
+        item.id === action.data ? { ...item, isDone: !item.isDone } : item
+      );
+    case "DELETE":
+      return state.filter((item) => item.id !== action.data);
+    default:
+      return state;
+  }
+}
+
 function App() {
-  const [todos, setTodos] = useState(mockDate);
+  const [todos, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
 
   const onCreate = (content) => {
-    const newTodo = {
-      id: idRef.current++,
-      isDone: false,
-      content: content,
-      date: new Date().getTime(),
-    };
-
-    setTodos([newTodo, ...todos]);
+    dispatch({
+      type: "CREATE",
+      data: {
+        id: idRef.current++,
+        isDone: false,
+        content: content,
+        date: new Date().getTime(),
+      },
+    });
   };
   const onUpdate = (targetId) => {
-    setTodos(
-      todos.map((todo) =>
-        // 매개변수가 많은 객체를 전달할 때, 왜 { todo } 가 아닌, 스프레드 연산자를 사용한 { ...todo } 를 전달해야 하는지... 왜더라...
-
-        todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
-      )
-    );
+    dispatch({
+      type: "UPDATE",
+      data: targetId,
+    });
   };
   const onDelete = (targetId) => {
-    setTodos(todos.filter((todo) => todo.id !== targetId));
+    dispatch({
+      type: "DELETE",
+      data: targetId,
+    });
   };
   return (
     <div className="App">
