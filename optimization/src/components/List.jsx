@@ -27,7 +27,6 @@ const List = ({ todos, onUpdate, onDelete }) => {
 
   // const { totalCount, doneCount, notDoneCount } = getAnalyzedData();
 
-  // 이거 자체는 렌더링 할때마다 계속 호출되긴 하는거지?
   const { totalCount, doneCount, notDoneCount } = useMemo(() => {
     const totalCount = todos.length;
     const doneCount = todos.filter((todo) => todo.isDone).length;

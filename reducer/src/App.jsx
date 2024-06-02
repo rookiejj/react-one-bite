@@ -41,7 +41,6 @@ function reducer(state, action) {
 }
 
 function App() {
-  // 아래 값들도 리랜더링될때마다 재생성 되나?
   const [todos, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
 

@@ -32,7 +32,6 @@ const List = ({ todos, onUpdate, onDelete }) => {
               key={todo.id}
               onDelete={onDelete}
               onUpdate={onUpdate}
-              // 객체 전달할 때 {todo} 가 아니었던게 그냥 문법적인거였던가?
               {...todo}
             />
           );
