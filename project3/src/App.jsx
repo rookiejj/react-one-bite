@@ -4,15 +4,19 @@ import Home from "../pages/Home";
 import New from "../pages/New";
 import Diary from "../pages/Diary";
 import NotFound from "../pages/NotFound";
+import Button from "./components/Button";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/new" element={<New />} />
-      <Route path="/diary" element={<Diary />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <>
+      <Button />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/new" element={<New />} />
+        <Route path="/diary" element={<Diary />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
