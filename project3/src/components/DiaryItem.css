@@ -45,6 +45,7 @@
 .DiaryItem .info_section {
   flex: 1;
   cursor: pointer;
+  align-content: center;
 }
 
 .DiaryItem .info_section .created_date {
@@ -58,4 +59,5 @@
 
 .DiaryItem .button_section {
   min-width: 70px;
+  align-content: center;
 }
