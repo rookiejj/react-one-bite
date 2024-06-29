@@ -1,11 +1,11 @@
 import "./App.css";
 import { useReducer, useRef, createContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import New from "../pages/New";
-import Edit from "../pages/Edit";
-import Diary from "../pages/Diary";
-import NotFound from "../pages/NotFound";
+import Home from "./pages/Home";
+import New from "./pages/New";
+import Edit from "./pages/Edit";
+import Diary from "./pages/Diary";
+import NotFound from "./pages/NotFound";
 
 import Button from "./components/Button";
 import Header from "./components/Header";
